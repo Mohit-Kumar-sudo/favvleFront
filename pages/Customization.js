@@ -35,12 +35,12 @@ class Customization extends React.Component {
         ? this.state.ranking
         : localStorage.getItem("rankingLibrary")
         ? JSON.parse(localStorage.getItem("rankingLibrary"))
-        : [],
+        :  JSON.parse(localStorage.getItem("ranking")),
       category: this.state.category
         ? this.state.category
         : localStorage.getItem("categoryLibrary")
         ? JSON.parse(localStorage.getItem("categoryLibrary"))
-        : JSON.parse(localStorage.getItem("ranking")),
+        :"",
     });
     localStorage.removeItem("idLibrary");
     localStorage.removeItem("nameLibrary");
