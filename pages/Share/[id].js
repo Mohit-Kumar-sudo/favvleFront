@@ -24,7 +24,7 @@ class LandingPage extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     axios
-      .post(process.env.NEXT_PUBLIC_BASEURL + "/users/getrankingbyid", {
+      .post(process.env.NEXT_PUBLIC_BASE_URL + "/users/getrankingbyid", {
         id: this.props.router.query.id,
       })
       .then((res) => {
