@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { BASE_URL } from "../../Constants";
 import { withRouter } from "next/router";
 import Head from "next/head";
 import GetRanks from "../../assets/Components/GetRanks/GetRanks";
@@ -530,12 +529,12 @@ export async function getServerSideProps(context) {
   let metadata = {
     status: 1,
     description: "default",
-    ogimg: "http://localhost:4000/Gif/60ae7b3a21a4261a445649c4.gif",
+    ogimg: process.env.NEXT_PUBLIC_BASE_URL+"/Gif/60ae7b3a21a4261a445649c4.gif",
     message: "successfull",
   };
 
   try {
-    const res = await axios.post(BASE_URL + "/users/getmetadata", {
+    const res = await axios.post(process.env.NEXT_PUBLIC_BASE_URL + "/users/getmetadata", {
       id: context.params.id,
     });
     metadata = res.data;
