@@ -131,6 +131,9 @@ class Library extends React.Component {
       );
     this.props.router.push({
       pathname: "/PostPreview",
+      query:{
+        _id:ranking._id
+      }
     });
   };
 
