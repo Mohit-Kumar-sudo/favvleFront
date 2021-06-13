@@ -18,7 +18,7 @@ class PostPreview extends React.Component {
     // console.log("post preview", props.router.query.ranking);
     this.state = {
       ranking: [],
-      id: props.router.query.ranking?._id,
+      id: props.router.query?._id,
       gif: "",
       shareurl: "",
       intervalId: "",
@@ -103,6 +103,7 @@ class PostPreview extends React.Component {
                 if (!obj.error) {
                   var image = obj.image;
                   this.setState({ gif: image });
+                  console.log("Gif name",response.data.rank._id)
                   axios
                     .post(process.env.NEXT_PUBLIC_BASE_URL + "/users/uploadgif", {
                       gif: image,
@@ -150,6 +151,7 @@ class PostPreview extends React.Component {
           if (!obj.error) {
             var image = obj.image;
             this.setState({ gif: image });
+            console.log("Gif name",this.state.id)
             axios
               .post(process.env.NEXT_PUBLIC_BASE_URL + "/users/uploadgif", {
                 gif: image,
